@@ -26,7 +26,7 @@ def csv_down(index):
     out.write(vhi_url.read())
     out.close()
     print(f'+File {index} downloaded')
-
+#lab3
 for i in range(1,26):
     csv_down(i)
 
