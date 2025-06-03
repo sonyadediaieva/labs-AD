@@ -43,13 +43,14 @@ mean_n = st.sidebar.slider('Середнє шуму', -1.0, 1.0, START_NOISE_MEA
 var_n = st.sidebar.slider('Дисперсія шуму', 0.0, 1.0, START_NOISE_VAR, step=0.01)
 
 selected_filter = st.sidebar.selectbox('Оберіть тип фільтра', ['Ковзне середнє'])
+win_size = st.sidebar.slider('Розмір вікна', 1, 5, 10, step = 1)
 
 base_signal = generate_harmonic(amp, freq, phase, time)
 noise_signal = noise_array(mean_n, var_n, len(time))
 noisy_signal = apply_noise(base_signal, noise_signal)
 
 if selected_filter == 'Ковзне середнє':
-    filtered_signal = average_filter(noisy_signal, win=20)
+    filtered_signal = average_filter(noisy_signal, win=win_size)
 else:
     filtered_signal = noisy_signal
 

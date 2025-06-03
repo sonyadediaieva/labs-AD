@@ -63,6 +63,7 @@ def launch_plot_app():
     signal_curve = noisy_curve = filtered_curve = None
     generated_noise = None
 
+#Оновлення графіка
     def refresh_view(regenerate_noise):
         nonlocal signal_curve, noisy_curve, filtered_curve, generated_noise
         t_axis = np.linspace(0, 1, 600)
